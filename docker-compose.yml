@@ -1,0 +1,10 @@
+services:
+  redteam:
+    build: .
+    ports:
+      - "127.0.0.1:8081:8000"
+    environment:
+      REDTEAM_ALLOWED_HOSTS: "${REDTEAM_ALLOWED_HOSTS:?Set explicit authorized target hosts}"
+      REDTEAM_REPORT_DIR: /srv/app/reports
+    volumes:
+      - ./reports:/srv/app/reports
